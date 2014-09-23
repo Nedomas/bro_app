@@ -42,6 +42,7 @@ ENV_GLOBALS =
     # Automatically connect to weinre on application's startup
     # (this way you can debug your application on your PC even if it's running from mobile ;) )
     WEINRE_ADDRESS: "#{LOCAL_IP}:31173"
+    WEINRE_BOUND_HOST: "-all-"
 
     BUILD_DIR: "www"
     CORDOVA_PLATFORM: process.env.CORDOVA_PLATFORM || gulp.env.platform
@@ -102,11 +103,11 @@ PUBLIC_GLOBALS_KEYS = [
 ]
 
 
-paths = 
+paths =
   assets: ['assets/**', '!assets/**/*.ejs']
   assets_ejs: ['assets/**/*.ejs']
   styles: ['app/css/**/*.scss']
-  scripts: 
+  scripts:
     vendor: [
       "assets/components/ionic/release/js/ionic.js"
       "assets/components/angular/angular.js"
@@ -131,7 +132,7 @@ paths =
     ]
   templates: ['app/**/*.jade']
 
-destinations = 
+destinations =
   assets: "#{GLOBALS.BUILD_DIR}"
   styles: "#{GLOBALS.BUILD_DIR}/css"
   scripts: "#{GLOBALS.BUILD_DIR}/js"
@@ -197,7 +198,7 @@ gulp.task 'scripts:vendor', ->
     gulp.src(paths.scripts[scriptsName])
       # .pipe(changed(destinations.scripts))
       # copy .coffee to www/ also, because sourcemap links to sources with relative path
-      # .pipe(gulp.dest(destinations.scripts)) 
+      # .pipe(gulp.dest(destinations.scripts))
       .pipe(coffee({
         # sourcemaps arent ready for gulp-concat yet :/ lets wait with that
         sourceMap: false
@@ -218,7 +219,7 @@ gulp.task 'templates', ->
   gulp.src(paths.templates)
     .pipe(changed(destinations.templates, extension: '.html'))
     .pipe(jade({
-      locals: 
+      locals:
         GLOBALS: template_globals
       pretty: true
     }))
@@ -240,8 +241,8 @@ gulp.task 'test:e2e:server', (cb) ->
   phantomChild.stdout.on 'data', (data) ->
     gutil.log gutil.colors.yellow data.toString()
     if data.toString().match 'running on port '
-      phantomDefer.resolve() 
-    
+      phantomDefer.resolve()
+
   phantomChild.once 'close', ->
     gutil.log "phantomChild closed"
     phantomChild.kill() if phantomChild
@@ -316,8 +317,9 @@ gulp.task 'server', ->
 
 gulp.task "weinre", ->
   [weinreHost, weinrePort] = GLOBALS.WEINRE_ADDRESS.split(":")
+  weinreBoundHost = GLOBALS.WEINRE_BOUND_HOST
 
-  args = ["--httpPort=#{weinrePort}", "--boundHost=#{weinreHost}"]
+  args = ["--httpPort=#{weinrePort}", "--boundHost=#{weinreBoundHost}"]
   child = child_process.spawn "node_modules/.bin/weinre", args,
     stdio: "inherit"
   # .on "exit", (code) ->
@@ -458,4 +460,3 @@ gulp.task "default", (cb) ->
   else
     gulp.task task, ->
       runSequence "#{task}:android", "#{task}:ios"
-
