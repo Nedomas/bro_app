@@ -42,4 +42,3 @@ ionic.Platform.ready ->
 #   if window.tinyHippos != undefined
 #     cordova.addDocumentEventHandler('backbutton')
 # , true
-  

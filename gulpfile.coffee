@@ -36,7 +36,9 @@ ENV_GLOBALS =
     BUNDLE_NAME: "IonicStarterApp (dev)"
     BUNDLE_VERSION: "1.0.0"
 
-    BACKEND_URL: "http://#{LOCAL_IP}:3000"
+    BACKEND_URL: 'http://10.30.0.1:3000'
+    API_URL: 'http://10.30.0.1:3000/api/v1'
+
     SECURE_BACKEND_URL: "http://#{LOCAL_IP}:3000"
 
     # Automatically connect to weinre on application's startup
@@ -93,6 +95,7 @@ for k, v of GLOBALS
 PUBLIC_GLOBALS_KEYS = [
   "ENV"
   "BACKEND_URL"
+  "API_URL"
   "BUNDLE_NAME"
   "CACHE_TAG"
   "CORDOVA_GOOGLE_ANALYTICS_ID"
@@ -115,6 +118,8 @@ paths =
       "assets/components/angular-sanitize/angular-sanitize.js"
       "assets/components/angular-ui-router/release/angular-ui-router.js"
       "assets/components/ionic/release/js/ionic-angular.js"
+      "assets/components/angular-cookies/angular-cookies.js"
+      "assets/components/ng-token-auth/dist/ng-token-auth.js"
       # Here add any vendor files that should be included in vendor.js
       # (f.e. bower components)
     ]

@@ -13,6 +13,16 @@ angular.module("ionicstarter")
     url: '/home'
     templateUrl: 'templates/home.html'
 
+  .state 'trial',
+    url: '/trial'
+    templateUrl: 'templates/trial.html'
+    controller: 'TrialController'
+
+  .state 'photo',
+    url: '/photo'
+    templateUrl: 'templates/photo.html'
+    controller: 'PhotoController'
+
   .state "tab",
     url: "/tab"
     abstract: true
@@ -46,4 +56,4 @@ angular.module("ionicstarter")
 
 
   # if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise "/tab/pets"
+  $urlRouterProvider.otherwise '/home'

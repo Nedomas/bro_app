@@ -1,7 +1,11 @@
 # ==> Initialize angular's app.
-app = angular.module("ionicstarter", [
-  "ionic"
+app = angular.module('ionicstarter', [
+  'ionic'
+  'ng-token-auth'
 ])
+.config ($authProvider) ->
+    $authProvider.configure
+      apiUrl: GLOBALS.API_URL
 
 for k, v of GLOBALS
   app.constant k, v
