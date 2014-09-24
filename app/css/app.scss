@@ -3,3 +3,24 @@
 body {
   background-color: gray;
 }
+
+.home-page {
+  .logo {
+    background: url('/img/papergodbig.png');
+    background-size: auto 100%;
+    height: 200px;
+    width: 200px;
+    margin: 0 auto 3em;
+    background-size: auto 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.app-content {
+  .pane {
+    background: url('/img/background.png');
+    background-size: 100%;
+    height: 100vh;
+  }
+}

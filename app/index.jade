@@ -7,7 +7,7 @@ html
 
     //- fix: see:
     //- http://stackoverflow.com/questions/19110144/ios7-issues-with-webview-focus-when-using-keyboard-html/19182670#19182670
-    //- https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html 
+    //- https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
     //- This seems however like it did worked only on iOS pre-7
     //- http://blogs.telerik.com/appbuilder/posts/13-11-07/everything-hybrid-web-apps-need-to-know-about-the-status-bar-in-ios7
     meta(name="apple-mobile-web-app-capable" content="yes")
@@ -19,7 +19,7 @@ html
     link(rel="apple-touch-icon", href="img/favicon.png" )
 
     //- Add google analytics, if available.
-    //- NOTE: to make it work on Cordova, 
+    //- NOTE: to make it work on Cordova,
     //-   you will also need angulartics and cordova google-analytics-plugin.
     -if (GLOBALS.GOOGLE_ANALYTICS_ID)
       script(type="text/javascript").
@@ -41,17 +41,17 @@ html
     script(id="cordova-js" src="cordova.js")
     //- If you need to include any cordova plugins' js files, add them here:
     //- script(id="cdv-plugin-fb-connect-js" src="cdv-plugin-fb-connect.js")
-      
+
   body(animation='slide-left-right-ios7')
     //
             The nav bar that will be updated as we navigate between views
             Additional attributes set its look, nav-bar animation and icons
-            Icons provided by Ionicons: http://ionicons.com/ 
-          
+            Icons provided by Ionicons: http://ionicons.com/
+
     ion-nav-bar(type='bar-positive', animation='nav-title-slide-ios7', back-button-type='button-icon', back-button-icon='ion-ios7-arrow-back')
     //
             The views will be rendered in the <nav-view> directive below
             Templates are in the /templates folder (but you could also
             have templates inline in this html file if you'd like).
-          
-    ion-nav-view
+
+    ion-nav-view.app-content
