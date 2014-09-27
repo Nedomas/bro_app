@@ -29,5 +29,3 @@ angular.module 'ionicstarter'
       for v in @listeners[eventName]
         v.apply(@, params)
         @off eventName, v if v.__once__
-
-

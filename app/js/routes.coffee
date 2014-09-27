@@ -12,6 +12,12 @@ angular.module("ionicstarter")
   .state 'home',
     url: '/home'
     templateUrl: 'templates/home.html'
+    controller: ($state, $auth) ->
+      # $auth.validateUser().then((user) ->
+      #   $state.go('photo')
+      $auth.validateUser().catch (resp) ->
+        debugger
+
 
   .state 'trial',
     url: '/trial'
@@ -22,6 +28,11 @@ angular.module("ionicstarter")
     url: '/photo'
     templateUrl: 'templates/photo.html'
     controller: 'PhotoController'
+
+  .state 'login',
+    url: '/login'
+    templateUrl: 'templates/login.html'
+    controller: 'LoginController'
 
   .state "tab",
     url: "/tab"

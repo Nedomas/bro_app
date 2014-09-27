@@ -5,5 +5,10 @@ html
     ion-view(title='Photo')
       ion-content(padding='true')
         div Something
-          button.button.button-block.button-energized(ng-click='takePhoto()')
-           | Take photo
+        button#upload.button.button-block.button-energized(ng-click='takePhoto()')
+         | Take photo
+//           form.dropzone(method='post' enctype='multipart/form-data' ng-dropzone
+//             dropzone='dropzone' dropzone-config='dropzoneConfig')
+//
+//             input(name='file' type='file' multiple)/
+//

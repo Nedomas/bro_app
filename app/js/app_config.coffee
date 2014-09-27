@@ -2,6 +2,7 @@
 app = angular.module('ionicstarter', [
   'ionic'
   'ng-token-auth'
+  'ngDropzone'
 ])
 .config ($authProvider) ->
     $authProvider.configure
