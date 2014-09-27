@@ -13,11 +13,8 @@ angular.module("ionicstarter")
     url: '/home'
     templateUrl: 'templates/home.html'
     controller: ($state, $auth) ->
-      # $auth.validateUser().then((user) ->
-      #   $state.go('photo')
-      $auth.validateUser().catch (resp) ->
-        debugger
-
+      $auth.validateUser().then (user) ->
+        $state.go('photo')
 
   .state 'trial',
     url: '/trial'

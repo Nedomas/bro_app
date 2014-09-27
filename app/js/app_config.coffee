@@ -7,6 +7,14 @@ app = angular.module('ionicstarter', [
 .config ($authProvider) ->
     $authProvider.configure
       apiUrl: GLOBALS.API_URL
+      storage: 'localStorage'
+      tokenFormat:
+        "access-token": "{{ token }}"
+        "token-type":   "Bearer"
+        client:         "{{ clientId }}"
+        expiry:         "{{ expiry }}"
+        uid:            "{{ uid }}"
+
 
 for k, v of GLOBALS
   app.constant k, v

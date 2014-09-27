@@ -119,8 +119,7 @@ paths =
       "assets/components/angular-ui-router/release/angular-ui-router.js"
       "assets/components/ionic/release/js/ionic-angular.js"
       "assets/components/angular-cookies/angular-cookies.js"
-      "assets/components/angular-devise/lib/devise.js"
-      # "assets/components/ng-token-auth/dist/ng-token-auth.js"
+      "assets/components/ng-token-auth/dist/ng-token-auth.js"
       "assets/components/dropzone/downloads/dropzone.js"
       "assets/components/angular-dropzone/lib/angular-dropzone.js"
       # Here add any vendor files that should be included in vendor.js
