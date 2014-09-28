@@ -3,7 +3,9 @@ app = angular.module('ionicstarter', [
   'ionic'
   'ng-token-auth'
   'ngDropzone'
+  'dropstore-ng'
 ])
+.constant('_', window._)
 .config ($authProvider) ->
     $authProvider.configure
       apiUrl: GLOBALS.API_URL

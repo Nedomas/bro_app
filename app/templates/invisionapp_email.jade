@@ -1,0 +1,11 @@
+html
+  body
+    ion-view(title='InvisionApp email')
+      ion-content(padding='true')
+        form(ng-submit='save(invisionapp_email_form)' role='form'
+          ng-init='invisionapp_email_form = {}')
+          div.list
+            label.item.item-input
+              input(type='email' name='email' placeholder='Invisionapp email address'
+                ng-model='invisionapp_email_form.email' required='required')
+        button.button.button-block.button-energized(type='submit') Save

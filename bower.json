@@ -17,7 +17,10 @@
     "ng-token-auth": "~0.0.22",
     "dropzone": "~3.10.2",
     "angular-dropzone": "~0.1.1",
-    "angular-devise": "~0.5.0"
+    "angular-devise": "~0.5.0",
+    "ng-lodash": "~0.0.2",
+    "lodash": "~2.4.1",
+    "dropstore-ng": "~1.0.6"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.17"

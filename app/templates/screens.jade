@@ -1,0 +1,10 @@
+html
+  body
+    ion-view(title='Screens')
+      ion-content(padding='true')
+        section.screens(ng-repeat='screen_url in screen_urls')
+          img.screen-box(ng-src='{{screen_url}}')
+          // input.screen-options(type='checkbox') Select
+
+        button.button.button-block.button-energized(ng-click='sendToInvisionApp()')
+          | Send to Invision App

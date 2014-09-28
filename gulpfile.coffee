@@ -122,6 +122,8 @@ paths =
       "assets/components/ng-token-auth/dist/ng-token-auth.js"
       "assets/components/dropzone/downloads/dropzone.js"
       "assets/components/angular-dropzone/lib/angular-dropzone.js"
+      "assets/components/lodash/dist/lodash.js"
+      "assets/components/dropstore-ng/dropstore-ng.js"
       # Here add any vendor files that should be included in vendor.js
       # (f.e. bower components)
     ]
