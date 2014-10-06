@@ -9,7 +9,7 @@ angular.module 'ionicstarter'
       headers: $auth.retrieveData('auth_headers')
 
     $scope.upload.on 'success', (file, resp) ->
-      $state.go('cut_page', conversion_id: resp.conversion.id)
+      $state.go('screens', conversion_id: resp.conversion.id)
 
     $scope.upload.on 'error', (file, resp) ->
       debugger
