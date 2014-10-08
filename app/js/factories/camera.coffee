@@ -4,7 +4,6 @@ angular.module 'ionicstarter'
   return getPicture: (options) ->
     q = $q.defer()
     navigator.camera.getPicture ((result) ->
-
       # Do any magic you need
       q.resolve result
       return
@@ -12,4 +11,5 @@ angular.module 'ionicstarter'
       q.reject err
       return
     ), options
+
     q.promise
