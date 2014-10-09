@@ -24,3 +24,26 @@ body {
     height: 100vh;
   }
 }
+
+.screens {
+  .slide-box {
+    text-align: center;
+  }
+
+  .screen-box {
+    background-size: 500px 500px;
+    /* background-size: contain; */
+    background-repeat: no-repeat;
+    width: 240px;
+    height: 325px;
+    margin: 0 auto;
+  }
+
+  .upload-checkbox {
+    /* text-align: center; */
+  }
+
+  .pager {
+    height: 50px;
+  }
+}

@@ -4,8 +4,10 @@ app = angular.module('ionicstarter', [
   'ng-token-auth'
   'ngDropzone'
   'dropstore-ng'
+  'restangular'
 ])
 .constant('_', window._)
+.constant('CRUD', window.CRUD)
 .config ($authProvider) ->
     $authProvider.configure
       apiUrl: GLOBALS.API_URL
@@ -16,7 +18,22 @@ app = angular.module('ionicstarter', [
         client:         "{{ clientId }}"
         expiry:         "{{ expiry }}"
         uid:            "{{ uid }}"
+.config (RestangularProvider) ->
+  RestangularProvider.setBaseUrl(GLOBALS.API_URL)
 
+CRUD.API_URL = GLOBALS.API_URL
+CRUD.prototype.request = (action, params) ->
+  initInjector = angular.injector(['ng'])
+  $http = initInjector.get('$http')
+  $http.post(this.url(action), this.data(params)).then (resp) ->
+    CRUD.prototype.promise(resp.data)
+
+CRUD.prototype.promise = (result) ->
+  initInjector = angular.injector(['ng'])
+  $q = initInjector.get('$q')
+  deferred = $q.defer()
+  deferred.resolve(result)
+  deferred.promise
 
 for k, v of GLOBALS
   app.constant k, v

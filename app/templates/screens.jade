@@ -1,10 +1,17 @@
 html
   body
     ion-view(title='Screens')
-      ion-content(padding='true')
-        section.screens(ng-repeat='screen_url in screen_urls')
-          img.screen-box(ng-src='{{screen_url}}')
-          // input.screen-options(type='checkbox') Select
+      ion-content.screens(padding='true')
+        ion-slide-box(on-slide-changed='')
+          ion-slide.slide-box(ng-repeat='screen in screens')
+            div.screen-box(style="background-image: url('{{screen.full_url}}');")
+            label.upload-checkbox(ng-model='screens[$index].upload')
+              div(ng-model='screens[$index].upload' class="checkbox \
+                checkbox-energized checkbox-input-hidden disable-pointer-events")
+                input(type="checkbox" ng-model='screens[$index].upload' class="ng-pristine ng-valid")
+                i(class="checkbox-icon")
+            div.pager
+
 
         button.button.button-block.button-energized(ng-click='sendToInvisionApp()')
           | Send to Invision App

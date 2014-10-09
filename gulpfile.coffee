@@ -124,6 +124,8 @@ paths =
       "assets/components/angular-dropzone/lib/angular-dropzone.js"
       "assets/components/lodash/dist/lodash.js"
       "assets/components/dropstore-ng/dropstore-ng.js"
+      "assets/components/crud/crud.js"
+      "assets/components/restangular/dist/restangular.js"
       # Here add any vendor files that should be included in vendor.js
       # (f.e. bower components)
     ]

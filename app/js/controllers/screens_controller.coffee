@@ -1,19 +1,30 @@
-angular.module 'ionicstarter'
+angular.module('ionicstarter')
 
-.controller 'ScreensController', ($scope, $state, $stateParams, $http, ConversionFactory) ->
-  $scope.screen_urls = []
+.controller 'ScreensController', ($scope, $state, $stateParams, $http,
+  ConversionFactory, $ionicSlideBoxDelegate, $timeout) ->
+
+  $scope.screens = []
+
+  Screen = new CRUD 'screens',
+    conversion_id: $stateParams.conversion_id
+  Screen.computed = (screen) ->
+    full_url: "#{GLOBALS.BACKEND_URL}#{screen.url}"
 
   $scope.init = ->
     $scope.downloadScreens()
 
   $scope.downloadScreens = ->
-    ConversionFactory.getScreenUrls($stateParams.conversion_id).then($scope.setScreenUrls)
+    Screen.where().then (screens) ->
+      $scope.screens = _.sortBy(screens, 'id')
+      $scope.$watch('screens', (-> Screen.sync()), true)
 
-  $scope.setScreenUrls = (resp) ->
-    $scope.screen_urls = _.map resp.data.conversion.screen_urls, (screen_path) ->
-      "#{GLOBALS.BACKEND_URL}#{screen_path}"
+      $timeout(->
+        $ionicSlideBoxDelegate.update()
+      , 0)
 
   $scope.sendToInvisionApp = ->
+    # Screen.push().then (resp) ->
+    debugger
     $state.go('send_invisionapp', conversion_id: $stateParams.conversion_id)
 
   $scope.init()
