@@ -23,8 +23,6 @@ angular.module('ionicstarter')
       , 0)
 
   $scope.sendToInvisionApp = ->
-    # Screen.push().then (resp) ->
-    debugger
     $state.go('send_invisionapp', conversion_id: $stateParams.conversion_id)
 
   $scope.init()
