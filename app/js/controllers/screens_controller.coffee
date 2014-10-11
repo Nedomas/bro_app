@@ -16,7 +16,9 @@ angular.module('ionicstarter')
   $scope.downloadScreens = ->
     Screen.where().then (screens) ->
       $scope.screens = _.sortBy(screens, 'id')
-      $scope.$watch('screens', (-> Screen.sync()), true)
+      $scope.$watch('screens', (
+        (new_records, old_records) -> Screen.syncDiff(new_records, old_records)
+      ), true)
 
       $timeout(->
         $ionicSlideBoxDelegate.update()
