@@ -5,7 +5,7 @@ angular.module('ionicstarter')
 
   $scope.screens = []
 
-  Screen = new CRUD 'screens',
+  Screen = new Godfather 'screens',
     conversion_id: $stateParams.conversion_id
   Screen.computed = (screen) ->
     full_url: "#{GLOBALS.BACKEND_URL}#{screen.url}"

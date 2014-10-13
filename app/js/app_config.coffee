@@ -7,7 +7,7 @@ app = angular.module('ionicstarter', [
   'restangular'
 ])
 .constant('_', window._)
-.constant('CRUD', window.CRUD)
+.constant('Godfather', window.Godfather)
 .config ($authProvider) ->
     $authProvider.configure
       apiUrl: GLOBALS.API_URL
@@ -21,14 +21,14 @@ app = angular.module('ionicstarter', [
 .config (RestangularProvider) ->
   RestangularProvider.setBaseUrl(GLOBALS.API_URL)
 
-CRUD.API_URL = GLOBALS.API_URL
-CRUD.prototype.request = (action, params) ->
+Godfather.API_URL = GLOBALS.API_URL
+Godfather.prototype.request = (action, params) ->
   initInjector = angular.injector(['ng'])
   $http = initInjector.get('$http')
   $http.post(this.url(action), this.data(params)).then (resp) ->
-    CRUD.prototype.promise(resp.data)
+    Godfather.prototype.promise(resp.data)
 
-CRUD.prototype.promise = (result) ->
+Godfather.prototype.promise = (result) ->
   initInjector = angular.injector(['ng'])
   $q = initInjector.get('$q')
   deferred = $q.defer()
