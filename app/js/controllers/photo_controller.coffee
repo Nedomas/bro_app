@@ -19,8 +19,13 @@ angular.module 'ionicstarter'
         debugger
 
   successfulUpload = (resp) ->
-    conversion_id = JSON.parse(resp.response).conversion.id
-    $state.go('screens', conversion_id: conversion_id)
+    if _.isString(resp.response)
+      conversion_id = JSON.parse(resp.response).conversion.id
+      $state.go('screens', conversion_id: conversion_id)
+    else
+      # mocked
+      $state.go('screens', conversion_id: resp.conversion.id)
+
 
   failedUpload = (resp) ->
     debugger

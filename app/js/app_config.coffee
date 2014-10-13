@@ -4,7 +4,6 @@ app = angular.module('ionicstarter', [
   'ng-token-auth'
   'ngDropzone'
   'dropstore-ng'
-  'restangular'
 ])
 .constant('_', window._)
 .constant('Godfather', window.Godfather)
@@ -18,8 +17,6 @@ app = angular.module('ionicstarter', [
         client:         "{{ clientId }}"
         expiry:         "{{ expiry }}"
         uid:            "{{ uid }}"
-.config (RestangularProvider) ->
-  RestangularProvider.setBaseUrl(GLOBALS.API_URL)
 
 Godfather.API_URL = GLOBALS.API_URL
 Godfather.prototype.request = (action, params) ->
