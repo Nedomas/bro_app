@@ -119,12 +119,6 @@ paths =
       "assets/components/angular-ui-router/release/angular-ui-router.js"
       "assets/components/ionic/release/js/ionic-angular.js"
       "assets/components/angular-cookies/angular-cookies.js"
-      "assets/components/ng-token-auth/dist/ng-token-auth.js"
-      "assets/components/dropzone/downloads/dropzone.js"
-      "assets/components/angular-dropzone/lib/angular-dropzone.js"
-      "assets/components/lodash/dist/lodash.js"
-      "assets/components/dropstore-ng/dropstore-ng.js"
-      "assets/components/godfather/dist/godfather.js"
       # Here add any vendor files that should be included in vendor.js
       # (f.e. bower components)
     ]
@@ -158,10 +152,10 @@ destinations =
   ]
 
 options =
-  open: gulp.env.open || process.env['OPEN'] || false # open the server in the browser on init?
+  # open the server in the browser on init?
+  open: gulp.env.open || process.env['OPEN'] || false
   httpPort: 4400
   riddlePort: 4400
-
 
 gulp.task 'clean', ->
   gulp.src(GLOBALS.BUILD_DIR, read: false)

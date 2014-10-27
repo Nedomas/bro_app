@@ -1,49 +1,5 @@
-@import "ionic";
+@import 'ionic';
 
 body {
-  background-color: gray;
-}
-
-.home-page {
-  .logo {
-    background: url('/img/papergodbig.png');
-    background-size: auto 100%;
-    height: 200px;
-    width: 200px;
-    margin: 0 auto 3em;
-    background-size: auto 80%;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-}
-
-.app-content {
-  .pane {
-    background: url('/img/background.png');
-    background-size: 100%;
-    height: 100vh;
-  }
-}
-
-.screens {
-  .slide-box {
-    text-align: center;
-  }
-
-  .screen-box {
-    background-size: 500px 500px;
-    /* background-size: contain; */
-    background-repeat: no-repeat;
-    width: 240px;
-    height: 325px;
-    margin: 0 auto;
-  }
-
-  .upload-checkbox {
-    /* text-align: center; */
-  }
-
-  .pager {
-    height: 50px;
-  }
+  background-color: #fff;
 }

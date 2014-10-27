@@ -4,11 +4,11 @@ html
         This template loads for the 'tab.about' state (app.js)
     ion-view(hide-nav-bar='true')
       ion-content(padding='true')
-        section.home-page.col.col-75.col-offset-10
-          div.logo
-          p
-            a.button.button-block.button-energized.button-large(ui-sref='trial') Start trial
-          p
-            a.button.button-block.button-energized.button-large(ui-sref='tour') Take a tour
-          p
-            a.button.button-block.button-energized.button-outline(ui-sref='login') Login
+        section.home-page.col.col-75.col-offset-10(data-model='gym_session')
+          input(placeholder='Squat' value='{squat}')
+          input(placeholder='Bench' value='{bench}')
+          input(placeholder='Press' value='{press}')
+          input(placeholder='Power clean' value='{powerclean}')
+          input(placeholder='Deadlift' value='{deadlift}')
+
+          a.button.button-block.button-balanced.button-large(onClick='{create}') Save

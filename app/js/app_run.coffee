@@ -19,19 +19,15 @@ ionic.Platform.ready ->
   angular.bootstrap document, ['ionicstarter']
 
 
-app.run ($rootScope, Auth, $window, $timeout) ->
+app.run ($rootScope, $window, $timeout) ->
   console.log 'Ionic app has just started (app.run)!' unless GLOBALS.ENV == "test"
-  
+
   # Make GLOBALS visible in every scope.
   $rootScope.GLOBALS = GLOBALS
 
   # Useful for debugging, like `$a("$rootScope")`
   $timeout ->
     $window.$a = angular.element(document.body).injector()?.get
-
-  # Make current_user and current_festival visible in every scope.
-  $rootScope.$watch (-> Auth.user?.id), ->
-    $rootScope.current_user = Auth.user
 
   $timeout ->
     # Finally, let's show the app ;)
