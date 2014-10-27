@@ -12,3 +12,12 @@ html
           input(placeholder='Deadlift' value='{deadlift}')
 
           a.button.button-block.button-balanced.button-large(onClick='{create}') Save
+
+        section(data-model='gym_session' data-step='2')
+          h1 Registered
+          p Squat: {squat} kg
+          p Bench: {bench} kg
+          p Press: {press} kg
+          p Power clean: {powerclean} kg
+          p Deadlift: {deadlift} kg
+          a.button.button-block.button-balanced.button-large(onClick='{previous}') Back
